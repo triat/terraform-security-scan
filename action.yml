@@ -6,4 +6,4 @@ outputs:
     description: 'The output log of tfsec'
 runs:
   using: 'docker'
-  image: 'docker://triat:tfsec:latest'
+  image: 'docker://triat/tfsec:latest'
