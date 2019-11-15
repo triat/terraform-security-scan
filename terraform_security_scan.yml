@@ -1,0 +1,7 @@
+# action.yml
+name: 'Terraform security scan'
+description: 'Scan your terraform code with tfsec'
+inputs:
+runs:
+  using: 'docker'
+  image: 'docker://triat:tfsec:latest'
