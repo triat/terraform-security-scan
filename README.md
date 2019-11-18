@@ -13,6 +13,8 @@ None
 None
 
 ## Example usage
+```
 steps:
   - uses: actions/checkout@v1
   - uses: actions/triat/terraform-security-scan@v1
+```
