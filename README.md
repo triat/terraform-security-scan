@@ -16,5 +16,5 @@ None
 ```
 steps:
   - uses: actions/checkout@v1
-  - uses: actions/triat/terraform-security-scan@v1
+  - uses: triat/terraform-security-scan@v1
 ```
