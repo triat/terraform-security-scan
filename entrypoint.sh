@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-tfsec
+/go/bin/tfsec /github/workspace
