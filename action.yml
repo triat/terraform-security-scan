@@ -1,6 +1,10 @@
 # action.yml
 name: 'Terraform security scan'
 description: 'Scan your terraform code with tfsec'
+inputs:
+  tfsec_actions_comment:
+    description: 'Whether or not to comment on pull requests.'
+    default: true
 runs:
   using: 'docker'
-  image: 'docker://triat/tfsec:latest'
+  image: './Dockerfile'
