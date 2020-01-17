@@ -16,17 +16,10 @@ None
 
 ```yaml
 steps:
-  - uses: actions/checkout@master
+  - uses: actions/checkout@v2
   - uses: triat/terraform-security-scan@v1
 ```
-
-The above example uses a tagged version (`v1`), you can also opt to use the `master` branch:
-
-```yaml
-steps:
-  - uses: actions/checkout@master
-  - uses: triat/terraform-security-scan@master
-```
+The above example uses a tagged version (`v1`), you can also opt to use any of the released version.
 
 To allow the action to add a comment to a PR when it fails you need to append the `GITHUB_TOKEN` variable to the tfsec action:
 
@@ -44,9 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Terraform security scan
-        uses: triat/terraform-security-scan@master
+        uses: triat/terraform-security-scan@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
