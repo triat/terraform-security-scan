@@ -1,6 +1,13 @@
 #!/bin/bash
 
-TFSEC_OUTPUT=$(/go/bin/tfsec /github/workspace)
+# Comment on the pull request if necessary.
+if [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "" ] && [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "." ]; then
+  TFSEC_WORKING_DIR="/github/workspace/${INPUT_TFSEC_ACTIONS_WORKING_DIR}"
+else
+  TFSEC_WORKING_DIR="/github/workspace/"
+fi
+
+TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR})
 TFSEC_EXITCODE=${?}
 
 # Exit code of 0 indicates success.

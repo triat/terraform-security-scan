@@ -7,6 +7,7 @@ The action requires the https://github.com/actions/checkout before to download t
 ## Inputs
 
 * `tfsec_actions_comment` - (Optional) Whether or not to comment on GitHub pull requests. Defaults to `true`.
+* `tfsec_actions_working_dir` - (Optional) Terraform working directory location. Defaults to `'.'`.
 
 ## Outputs
 

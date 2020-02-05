@@ -5,6 +5,9 @@ inputs:
   tfsec_actions_comment:
     description: 'Whether or not to comment on pull requests.'
     default: true
+  tfsec_actions_working_dir:
+    description: 'Terraform working directory.'
+    default: '.'
 runs:
   using: 'docker'
   image: './Dockerfile'
