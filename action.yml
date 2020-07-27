@@ -10,6 +10,9 @@ inputs:
     description: 'Terraform working directory.'
     required: false
     default: '.'
+  tfsec_exclude:
+    description: 'Provide checks via , without space to exclude from run'
+    required: false
 runs:
   using: 'docker'
   image: './Dockerfile'

@@ -7,7 +7,11 @@ else
   TFSEC_WORKING_DIR="/github/workspace/"
 fi
 
-TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR})
+if [[ -n "$INPUT_TFSEC_EXCLUDE" ]]; then
+  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} -e "${INPUT_TFSEC_EXCLUDE}")
+else
+  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR})
+fi
 TFSEC_EXITCODE=${?}
 
 # Exit code of 0 indicates success.
@@ -32,7 +36,7 @@ if [ "${GITHUB_EVENT_NAME}" == "pull_request" ] && [ -n "${GITHUB_TOKEN}" ] && [
 <details><summary>Show Output</summary>
 
 \`\`\`hcl
-$(/go/bin/tfsec /github/workspace --no-colour)
+${TFSEC_OUTPUT}
 \`\`\`
 
 </details>"
