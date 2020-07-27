@@ -4,9 +4,11 @@ description: 'Scan your terraform code with tfsec'
 inputs:
   tfsec_actions_comment:
     description: 'Whether or not to comment on pull requests.'
+    required: false
     default: true
   tfsec_actions_working_dir:
     description: 'Terraform working directory.'
+    required: false
     default: '.'
 runs:
   using: 'docker'
