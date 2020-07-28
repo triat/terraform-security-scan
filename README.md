@@ -1,13 +1,14 @@
 # Terraform security check action
 
-This action runs https://github.com/liamg/tfsec on `$GITHUB_WORKSPACE`. This is a security check on your terraform repository. 
+This action runs https://github.com/liamg/tfsec on `$GITHUB_WORKSPACE`. This is a security check on your terraform repository.
 
-The action requires the https://github.com/actions/checkout before to download the content of your repo inside the docker. 
+The action requires the https://github.com/actions/checkout before to download the content of your repo inside the docker.
 
 ## Inputs
 
 * `tfsec_actions_comment` - (Optional) Whether or not to comment on GitHub pull requests. Defaults to `true`.
 * `tfsec_actions_working_dir` - (Optional) Terraform working directory location. Defaults to `'.'`.
+* `tfsec_exclude` - (Optional) Provide checks via , without space to exclude from run. No default
 
 ## Outputs
 
