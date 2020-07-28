@@ -13,6 +13,9 @@ inputs:
   tfsec_exclude:
     description: 'Provide checks via , without space to exclude from run'
     required: false
+  tfsec_version:
+    description: 'Specify the version of tfsec to install'
+    required: false
 runs:
   using: 'docker'
   image: './Dockerfile'
