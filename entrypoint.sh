@@ -7,6 +7,13 @@ else
   TFSEC_WORKING_DIR="/github/workspace/"
 fi
 
+# grab tfsec from GitHub (taken from README.md)
+if [[ -n "$INPUT_TFSEC_VERSION" ]]; then
+  env GO111MODULE=on go get -u github.com/liamg/tfsec/cmd/tfsec@"${INPUT_TFSEC_VERSION}"
+else
+  env GO111MODULE=on go get -u github.com/liamg/tfsec/cmd/tfsec
+fi
+
 if [[ -n "$INPUT_TFSEC_EXCLUDE" ]]; then
   TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} -e "${INPUT_TFSEC_EXCLUDE}")
 else
