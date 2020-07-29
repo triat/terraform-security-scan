@@ -1,3 +1,4 @@
+![Master CI](https://github.com/triat/terraform-security-scan/workflows/Master%20CI/badge.svg?branch=master)
 # Terraform security check action
 
 This action runs https://github.com/liamg/tfsec on `$GITHUB_WORKSPACE`. This is a security check on your terraform repository.
