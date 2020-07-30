@@ -15,7 +15,7 @@ jobs:
     - name: ShellCheck
       uses: ludeeus/action-shellcheck@0.4.1
     - name: Terraform security scan
-      uses: triat/terraform-security-scan@$BRANCH_NAME
+      uses: triat/terraform-security-scan@8-run-pr-content-to-build-action
       with:
         tfsec_actions_comment: false
         tfsec_actions_working_dir: "test/"
