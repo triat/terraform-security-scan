@@ -9,9 +9,9 @@ fi
 
 # grab tfsec from GitHub (taken from README.md)
 if [[ -n "$INPUT_TFSEC_VERSION" ]]; then
-  env GO111MODULE=on go get -u github.com/liamg/tfsec/cmd/tfsec@"${INPUT_TFSEC_VERSION}"
+  env GO111MODULE=on go get -u github.com/tfsec/tfsec/cmd/tfsec@"${INPUT_TFSEC_VERSION}"
 else
-  env GO111MODULE=on go get -u github.com/liamg/tfsec/cmd/tfsec
+  env GO111MODULE=on go get -u github.com/tfsec/tfsec/cmd/tfsec
 fi
 
 if [[ -n "$INPUT_TFSEC_EXCLUDE" ]]; then
