@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Comment on the pull request if necessary.
+# Add specific directory if any 
 if [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "" ] && [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "." ]; then
-  TFSEC_WORKING_DIR="/github/workspace/${INPUT_TFSEC_ACTIONS_WORKING_DIR}"
+  TFSEC_WORKING_DIR="${INPUT_TFSEC_ACTIONS_WORKING_DIR}"
 else
-  TFSEC_WORKING_DIR="/github/workspace/"
+  TFSEC_WORKING_DIR="."
 fi
 
 # grab tfsec from GitHub (taken from README.md)
