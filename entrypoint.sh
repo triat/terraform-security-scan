@@ -7,6 +7,8 @@ else
   TFSEC_WORKING_DIR="."
 fi
 
+echo "$TFSEC_WORKING_DIR"
+
 # grab tfsec from GitHub (taken from README.md)
 if [[ -n "$INPUT_TFSEC_VERSION" ]]; then
   env GO111MODULE=on go get -u github.com/tfsec/tfsec/cmd/tfsec@"${INPUT_TFSEC_VERSION}"
@@ -15,10 +17,12 @@ else
 fi
 
 if [[ -n "$INPUT_TFSEC_EXCLUDE" ]]; then
-  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour -e "${INPUT_TFSEC_EXCLUDE}")
+  TFSEC_CMD="/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour -e \"${INPUT_TFSEC_EXCLUDE}\""
 else
-  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour)
+  TFSEC_CMD="/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour"
 fi
+echo "$TFSEC_CMD"
+TFSEC_OUTPUT=$($TFSEC_CMD)
 TFSEC_EXITCODE=${?}
 
 # Exit code of 0 indicates success.
