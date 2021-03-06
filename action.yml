@@ -16,6 +16,13 @@ inputs:
   tfsec_version:
     description: 'Specify the version of tfsec to install'
     required: false
+  tfsec_output_format:
+    description: 'The output required default, json, csv, checkstyle, junit, sarif'
+    default: default
+    required: false
+  tfsec_output_file:
+    description: 'The name of the output file'
+    required: false
 runs:
   using: 'docker'
   image: './Dockerfile'
