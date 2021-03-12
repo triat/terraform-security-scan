@@ -1,11 +1,7 @@
 #!/bin/bash
 
-#Select the out put format
-if [ "${TFSEC_OUTPUT_FORMAT}" != "" ]; then
-  TFSEC_FORMAT="-f ${TFSEC_OUTPUT_FORMAT}"
-else
-  TFSEC_FORMAT=""
-fi
+#Select the output format
+TFSEC_FORMAT="-f ${TFSEC_OUTPUT_FORMAT}"
 
 #select the output file
 if [ "${TFSEC_OUTPUT_FILE}" != "" ]; then
