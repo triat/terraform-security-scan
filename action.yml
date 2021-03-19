@@ -18,7 +18,7 @@ inputs:
     required: false
   tfsec_output_format:
     description: 'The output required default, json, csv, checkstyle, junit, sarif'
-    default: default
+    default: 'default'
     required: false
   tfsec_output_file:
     description: 'The name of the output file'
