@@ -11,7 +11,7 @@ The action requires the https://github.com/actions/checkout before to download t
 * `tfsec_actions_working_dir` - (Optional) Terraform working directory location. Defaults to `'.'`.
 * `tfsec_exclude` - (Optional) Provide checks via `,` without space to exclude from run. No default
 * `tfsec_version` - (Optional) Specify the version of tfsec to install. Defaults to the latest
-* `tfsec_output_format` - (Optional) The output required default, json, csv, checkstyle, junit, sarif (check `tfsec` for an extensive list)
+* `tfsec_output_format` - (Optional) The output format: default, json, csv, checkstyle, junit, sarif (check `tfsec` for an extensive list)
 * `tfsec_output_file` - (Optional) The name of the output file
     
 ## Outputs

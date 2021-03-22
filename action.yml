@@ -17,8 +17,7 @@ inputs:
     description: 'Specify the version of tfsec to install'
     required: false
   tfsec_output_format:
-    description: 'The output required default, json, csv, checkstyle, junit, sarif (check `tfsec` for an extensive list)'
-    default: 'default'
+    description: 'The output format: default, json, csv, checkstyle, junit, sarif (check `tfsec` for an extensive list)'
     required: false
   tfsec_output_file:
     description: 'The name of the output file'
