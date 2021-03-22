@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#Select the output format
+TFSEC_FORMAT="-f ${TFSEC_OUTPUT_FORMAT}"
+
+#select the output file
+if [ "${TFSEC_OUTPUT_FILE}" != "" ]; then
+  TFSEC_FILE="--out ${TFSEC_OUTPUT_FILE}"
+else
+  TFSEC_FILE=""
+fi
+
 # Comment on the pull request if necessary.
 if [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "" ] && [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "." ]; then
   TFSEC_WORKING_DIR="/github/workspace/${INPUT_TFSEC_ACTIONS_WORKING_DIR}"
@@ -15,9 +25,9 @@ else
 fi
 
 if [[ -n "$INPUT_TFSEC_EXCLUDE" ]]; then
-  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour -e "${INPUT_TFSEC_EXCLUDE}")
+  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour -e "${INPUT_TFSEC_EXCLUDE} ${TFSEC_FORMAT} ${TFSEC_FILE}")
 else
-  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour)
+  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour "${TFSEC_FORMAT} ${TFSEC_FILE}")
 fi
 TFSEC_EXITCODE=${?}
 
