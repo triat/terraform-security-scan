@@ -25,9 +25,9 @@ else
 fi
 
 if [[ -n "$INPUT_TFSEC_EXCLUDE" ]]; then
-  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour -e "${INPUT_TFSEC_EXCLUDE} ${TFSEC_FORMAT} ${TFSEC_FILE}")
+  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour -e "${INPUT_TFSEC_EXCLUDE}" "${TFSEC_FORMAT}" "${TFSEC_FILE}")
 else
-  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour "${TFSEC_FORMAT} ${TFSEC_FILE}")
+  TFSEC_OUTPUT=$(/go/bin/tfsec ${TFSEC_WORKING_DIR} --no-colour "${TFSEC_FORMAT}" "${TFSEC_FILE}")
 fi
 TFSEC_EXITCODE=${?}
 
