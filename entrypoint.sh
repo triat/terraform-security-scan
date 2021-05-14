@@ -14,7 +14,7 @@ else
   TFSEC_FILE=""
 fi
 
-# Comment on the pull request if necessary.
+# set working directory
 if [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "" ] && [ "${INPUT_TFSEC_ACTIONS_WORKING_DIR}" != "." ]; then
   TFSEC_WORKING_DIR="/github/workspace/${INPUT_TFSEC_ACTIONS_WORKING_DIR}"
 else
