@@ -1,15 +1,15 @@
 #!/bin/bash
 
-#Select the output format
-if [ "${TFSEC_OUTPUT_FILE}" != "" ]; then
-  TFSEC_FORMAT="-f ${TFSEC_OUTPUT_FILE}"
+# Select the output format
+if [ "${INPUT_TFSEC_OUTPUT_FORMAT}" != "" ]; then
+  TFSEC_FORMAT="-f ${INPUT_TFSEC_OUTPUT_FORMAT}"
 else
   TFSEC_FORMAT=""
 fi
 
-#select the output file
-if [ "${TFSEC_OUTPUT_FILE}" != "" ]; then
-  TFSEC_FILE="--out ${TFSEC_OUTPUT_FILE}"
+# select the output file
+if [ "${INPUT_TFSEC_OUTPUT_FILE}" != "" ]; then
+  TFSEC_FILE="--out ${INPUT_TFSEC_OUTPUT_FILE}"
 else
   TFSEC_FILE=""
 fi
