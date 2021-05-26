@@ -23,7 +23,7 @@ None
 ```yaml
 steps:
   - uses: actions/checkout@v2
-  - uses: triat/terraform-security-scan@v2.0.2
+  - uses: triat/terraform-security-scan@v2.2.3
 ```
 The above example uses a tagged version (`v1`), you can also opt to use any of the released version.
 
@@ -45,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Terraform security scan
-        uses: triat/terraform-security-scan@v2.0.2
+        uses: triat/terraform-security-scan@v2.2.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
