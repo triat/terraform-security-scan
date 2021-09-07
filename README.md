@@ -1,3 +1,5 @@
+> :warning: tfsec has it's own github action now, which will certainly follow more the evolution of this amazing tool. When I discovered tfsec, there was no github actions, and this is the reason why this one exists. Now that they have their own, there is not more need to have multiple repo for that. You can find it here: [aquasecurity/tfsec-pr-commenter-action](https://github.com/aquasecurity/tfsec-pr-commenter-action) :warning:
+
 ![Master CI](https://github.com/triat/terraform-security-scan/workflows/Master%20CI/badge.svg?branch=master)
 # Terraform security check action
 
