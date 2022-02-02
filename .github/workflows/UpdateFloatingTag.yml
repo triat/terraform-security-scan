@@ -1,0 +1,47 @@
+name: 'Update major version tag'
+
+on:
+  release:
+    types: [created, published]
+
+jobs:
+  # updates the floating tag alias for the major version.
+  release:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - name: Parse higher semantic versions
+      id: semver
+      shell: bash
+      run: |
+        TAG="${{ github.ref_name }}"
+        MINOR="${TAG%.*}"
+        MAJOR="${MINOR%.*}"
+        echo "::set-output name=major::$(echo $MAJOR)"
+        echo "::set-output name=minor::$(echo $MINOR)"
+    - name: 'Update major version tag'
+      uses: 'actions/github-script@v5'
+      with:
+        script: |-
+          const sha = '${{ github.sha }}'
+          const major = '${{ steps.semver.outputs.major }}';
+          // Try to update the ref first. If that fails, it probably does not
+          // exist yet, and we should create it.
+          try {
+            await github.rest.git.updateRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `tags/${major}`,
+              sha: sha,
+              force: true,
+            });
+            core.info(`Updated ${major} to ${sha}`);
+          } catch(err) {
+            core.warning(`Failed to create ${major}: ${err}`);
+            await github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${major}`,
+              sha: sha,
+            });
+            core.info(`Created ${major} at ${sha}`);
+          }
