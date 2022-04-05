@@ -25,9 +25,9 @@ None
 ```yaml
 steps:
   - uses: actions/checkout@v2
-  - uses: triat/terraform-security-scan@v3.0.0
+  - uses: triat/terraform-security-scan@v3
 ```
-The above example uses a tagged version (`v1`), you can also opt to use any of the released version.
+The above example uses a tagged version (`v3`), you can also opt to use any of the released version.
 
 To allow the action to add a comment to a PR when it fails you need to append the `GITHUB_TOKEN` variable to the tfsec action:
 
