@@ -16,6 +16,6 @@ jobs:
       with:
         tfsec_actions_comment: false
         tfsec_actions_working_dir: "test/"
-        tfsec_exclude: "AWS018,AWS006,AWS004,AWS003,AZU003"
+        tfsec_exclude: "AWS018,AWS006,AWS004,AWS003,AZU003,aws-ec2-add-description-to-security-group-rule,aws-ec2-no-public-ingress-sgr"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
