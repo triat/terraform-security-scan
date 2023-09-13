@@ -10,6 +10,9 @@ inputs:
     description: 'Terraform working directory.'
     required: false
     default: '.'
+  tfsec_config_file:
+    description: 'The name of the config file used to override various tfsec configurations'
+    required: false
   tfsec_exclude:
     description: 'Provide checks via , without space to exclude from run'
     required: false
