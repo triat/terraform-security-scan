@@ -1,5 +1,5 @@
 # pinned version of the Alpine-tagged 'go' image
-FROM golang:1.21-alpine
+FROM golang:1.22.0-alpine
 
 # install requirements
 RUN apk add --update --no-cache bash ca-certificates curl jq
